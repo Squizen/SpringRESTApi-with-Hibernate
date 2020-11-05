@@ -30,8 +30,12 @@ public class InstructorService {
 	}
 	
 	@Transactional
-	public Instructor addAloneInstructor(Instructor instructor) {
-		return instructorDAO.addAloneInstructor(instructor);
+	public Instructor addInstructor(Instructor instructor) {
+		return instructorDAO.addInstructor(instructor);
 	}
 
+	@Transactional
+	public Instructor linkInstructorDetailWithInstructor(int instructorID, int instructorDetailID) {
+		return instructorDAO.linkInstructorDetailWithInstructor(instructorID, instructorDetailID);
+	}
 }

@@ -9,7 +9,11 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonView;
+
+import breakthecode.com.pl.springnauka.interfaces.View;
 
 @Entity
 @Table(name="instructor_detail")
@@ -18,19 +22,24 @@ public class InstructorDetail {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id")
+	@JsonView({View.InstructorDetail.class, View.Instructor.class, View.Course.class})
 	private int id;
 	
 	@Column(name="youtube_channel")
+	@JsonView({View.InstructorDetail.class, View.Instructor.class, View.Course.class})
 	private String youtubeChannel;
 	
 	@Column(name="hobby")
+	@JsonView({View.InstructorDetail.class, View.Instructor.class, View.Course.class})
 	private String hobby;
 	
 	@OneToOne(mappedBy="instructorDetail", cascade= {CascadeType.DETACH,
 			 CascadeType.MERGE,
 			 CascadeType.PERSIST,
 			 CascadeType.REFRESH })
-	@JsonIgnore
+	
+//	@JsonProperty(access=Access.WRITE_ONLY)
+	@JsonView({View.InstructorDetail.class})
 	private Instructor instructor;
 	
 	public InstructorDetail() {

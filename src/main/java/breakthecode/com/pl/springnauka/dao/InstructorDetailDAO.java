@@ -26,7 +26,7 @@ public class InstructorDetailDAO {
 		return instructorDetail;
 	}
 	
-	public InstructorDetail addAloneInstructorDetail(InstructorDetail instructorDetail) {
+	public InstructorDetail addInstructorDetail(InstructorDetail instructorDetail) {
 		Session session = entityManager.unwrap(Session.class);
 		session.save(instructorDetail);
 		return instructorDetail;

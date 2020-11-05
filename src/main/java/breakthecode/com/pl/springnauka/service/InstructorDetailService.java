@@ -24,8 +24,8 @@ public class InstructorDetailService {
 	}
 
 	@Transactional
-	public InstructorDetail addAloneInstructorDetail(InstructorDetail instructorDetail) {
-		return instructorDetailDAO.addAloneInstructorDetail(instructorDetail);
+	public InstructorDetail addInstructorDetail(InstructorDetail instructorDetail) {
+		return instructorDetailDAO.addInstructorDetail(instructorDetail);
 	}
 	
 	@Transactional
